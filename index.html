@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="purple" dark-mode="off">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="https://github.com/guilhermefs120.png" />
+    <title>dev.finance$ - v1.21 | By GuilhermeFS120</title>
+  </head>
+
+  <body>
+    <div class="custom-button" onclick="Modal.toggle('.custom-overlay')">
+      <i class="fas fa-eye-dropper"></i>
+    </div>
+
+    <header>
+      <!-- Cabeçalho da Página -->
+      <div>
+        <p onclick="Modal.toggle('.about-overlay')">
+          dev<span class="custom-logo">.</span>finance<span class="custom-logo"
+            >$</span
+          >
+        </p>
+      </div>
+      <!-- Título da página -->
+    </header>
+
+    <main class="container">
+      <!-- Seção Principal da Página -->
+      <section id="balance">
+        <!-- Seção de Entradas e Saídas -->
+        <h2 class="sr-only">Balanço</h2>
+        <div class="card">
+          <!-- Card de Entradas -->
+          <h3>
+            <span>Entradas</span>
+            <img src="./assets/income.svg" alt="Entradas" />
+          </h3>
+          <p id="incomeDisplay"></p>
+        </div>
+        <div class="card">
+          <!-- Card de Saídas -->
+          <h3>
+            <span>Saídas</span>
+            <img src="./assets/expense.svg" alt="Saídas" />
+          </h3>
+          <p id="expenseDisplay"></p>
+        </div>
+        <div class="card total">
+          <!-- Card de Total -->
+          <h3>
+            <span>Total</span>
+            <img src="./assets/total.svg" alt="Total" />
+          </h3>
+          <p id="totalDisplay"></p>
+        </div>
+      </section>
+      <section id="transaction">
+        <!-- Seção de Transações -->
+        <h2 class="sr-only">Transações</h2>
+        <a href="#" class="button new" onclick="Modal.toggle('.modal-overlay')"
+          >+ Nova Transação</a
+        >
+        <table id="data-table">
+          <!-- Tabela de Transações -->
+          <thead>
+            <!-- Cabeçalho da Tabela -->
+            <tr>
+              <!-- Linha de Título -->
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Data</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+
+    <div class="modal-overlay">
+      <div class="modal">
+        <div id="form">
+          <h2>Nova Transação</h2>
+          <form action="" onsubmit="Form.submit(event)">
+            <div class="input-group">
+              <label for="description" class="sr-only">Descrição</label>
+              <input
+                type="text"
+                name="description"
+                id="description"
+                placeholder="Descrição"
+              />
+            </div>
+            <div class="input-group">
+              <label for="amount" class="sr-only">Valor</label>
+              <input
+                type="number"
+                step="0.01"
+                name="amount"
+                id="amount"
+                placeholder="Valor"
+              />
+              <small class="help">
+                Use o sinal de "-" (Negativo) para despesas e "," (Vírgula) para
+                casas decimais.
+              </small>
+            </div>
+            <div class="input-group">
+              <label for="date" class="sr-only">Data</label>
+              <input type="date" name="date" id="date" />
+            </div>
+            <div class="input-group actions">
+              <a
+                href="#"
+                class="button cancel"
+                onclick="Modal.toggle('.modal-overlay')"
+                >Cancelar</a
+              >
+              <button>Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-overlay active">
+      <div class="about">
+        <h2 class="about-header">Sobre o Projeto</h2>
+        <p>
+          Projeto desenvolvdo por Guilherme Silva na Maratona Discover da
+          Rocketseat com Mayk Brito.
+        </p>
+        <p class="assign">Guilherme F. Silva</p>
+        <p>
+          <a href="https://app.rocketseat.com.br" target="_blank"
+            >Conheça a plataforma</a
+          >
+        </p>
+        <div class="input-group actions">
+          <a
+            href="#"
+            class="button cancel"
+            onclick="Modal.toggle('.about-overlay')"
+            >Fechar</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="custom-overlay">
+      <div class="custom">
+        <h2 class="custom-header">Personalizar Página</h2>
+        <div class="custom-options">
+          <div class="options">
+            <button class="option red" onclick="setTheme('red')">
+              Vermelho
+            </button>
+            <button class="option purple" onclick="setTheme('purple')">
+              Roxo
+            </button>
+            <button class="option blue" onclick="setTheme('blue')">Azul</button>
+          </div>
+          <div class="options">
+            <button class="option green" onclick="setTheme('green')">
+              Verde
+            </button>
+            <button class="option yellow" onclick="setTheme('yellow')">
+              Amarelo
+            </button>
+            <button class="option orange" onclick="setTheme('orange')">
+              Laranja
+            </button>
+          </div>
+        </div>
+        <div class="dark-mode">
+          <input type="checkbox" name="" id="darkMode" />
+          Tema Escuro
+          <label for="darkMode" class="option" onclick="darkMode()"
+            >Desligado</label
+          >
+        </div>
+        <div class="input-group actions">
+          <a
+            href="#"
+            class="button cancel"
+            onclick="Modal.toggle('.custom-overlay')"
+            >Fechar</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <!-- Rodapé da Página -->
+      <p>dev.finance$ - v1.21</p>
+    </footer>
+
+    <div class="signature">
+      <p>Style By <span class="assign">Guilherme F. Silva</span></p>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,732 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.0.9/css/all.css');
+
+/* <====================| Temas |====================> */
+html[data-theme='purple'] {
+  --hue: 270;
+}
+
+html[data-theme='blue'] {
+  --hue: 210;
+}
+
+html[data-theme='green'] {
+  --hue: 120;
+}
+
+html[data-theme='yellow'] {
+  --hue: 60;
+}
+
+html[data-theme='orange'] {
+  --hue: 30;
+}
+
+html[data-theme='red'] {
+  --hue: 0;
+}
+
+html[dark-mode='off'] {
+  --main-bg: hsl(0, 0%, 90%);
+  --font-color: hsl(var(--hue), 50%, 10%);
+  --card-bg: white;
+  --table-bg: white;
+  --input-bg: white;
+}
+
+html[dark-mode='on'] {
+  --main-bg: hsl(0, 0%, 20%);
+  --font-color: hsl(var(--hue), 0%, 95%);
+  --card-bg: hsl(0, 0%, 25%);
+  --table-bg: hsl(0, 0%, 30%);
+  --input-bg: hsl(0, 0%, 30%);
+}
+
+/* <====================| Global |====================> */
+:root {
+  --main-font: 'Poppins', 'Open Sans', sans-serif;
+  --red: hsl(0, 75%, 50%);
+  --primary-color: hsl(var(--hue), 55%, 50%);
+  --secondary-color: hsl(var(--hue), 50%, 20%);
+  --alt-color: hsl(var(--hue), 65%, 65%);
+  --scroll-size: 0.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 93.75%;
+  height: 100vh;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--main-bg);
+  font-family: var(--main-font);
+  overflow-y: auto;
+  height: 100%;
+  color: var(--font-color);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  height: var(--scroll-size);
+  width: var(--scroll-size);
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: calc(var(--scroll-size) / 2);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  width: min(90vw, 62.5rem);
+  margin: auto;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* <====================| Títulos |====================> */
+
+h2 {
+  margin: 3.2rem 0 0.8rem 0;
+  color: var(--font-color);
+  font-weight: normal;
+}
+
+/* <====================| Links e Botões |====================> */
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: 0.3s;
+
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+a:hover {
+  color: var(--alt-color);
+}
+
+button {
+  width: 100%;
+  height: 3.125rem;
+  border: none;
+  color: white;
+  font: 400 1rem var(--main-font);
+  background: var(--primary-color);
+  padding: 0;
+  border-radius: 0.25rem;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: var(--alt-color);
+  cursor: pointer;
+}
+
+.button.new {
+  display: inline-block;
+  margin: 0 0 0.8rem 0;
+}
+
+.button.cancel {
+  color: var(--red);
+  border: 2px solid var(--red);
+  border-radius: 0.25rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: 0.3s;
+
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button.cancel:hover {
+  opacity: 1;
+}
+
+.close-button {
+  background: transparent;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.close-button:hover {
+  opacity: 1;
+}
+
+/* <====================| Header |====================> */
+
+header {
+  background: var(--secondary-color);
+  padding: 2rem 0 10rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 11.5rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header div p {
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  text-shadow: 6px 6px 0px rgba(0, 0, 0, 30%);
+}
+
+.custom-logo {
+  color: var(--primary-color);
+}
+
+/* <====================| Balance |====================> */
+
+#balance {
+  margin: -8rem 0 0 0;
+}
+
+#balance h2 {
+  color: white;
+}
+
+/* <====================| Cards |====================> */
+
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+  margin: 0 0 2rem 0;
+  color: var(--font-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 10%);
+}
+
+.card h3 {
+  font-weight: normal;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card p {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 1rem;
+}
+
+.card.total {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* <====================| Tabela |====================> */
+
+#transaction {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+#transaction::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: hsl(var(--hue), 40%, 70%);
+}
+
+table thead tr th:first-child,
+table tbody tr td:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead tr th:last-child,
+table tbody tr td:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+table thead th {
+  background: var(--table-bg);
+  font-weight: normal;
+  padding: 1rem 2rem;
+  text-align: left;
+}
+
+table tbody tr {
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+table tbody tr:hover {
+  opacity: 1;
+}
+
+table tbody td {
+  background: var(--table-bg);
+  padding: 1rem 2rem;
+}
+
+td.description,
+td.date {
+  color: var(--font-color);
+}
+
+td.income {
+  color: hsl(120, 50%, 60%);
+}
+
+td.expense {
+  color: hsl(0, 50%, 60%);
+}
+
+.remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove.button {
+  cursor: pointer;
+}
+
+/* <====================| Footer |====================> */
+
+footer {
+  padding: 4rem 0 6rem 0;
+  text-align: center;
+  color: var(--font-color);
+  opacity: 0.6;
+}
+
+/* <====================| Modal |====================> */
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.1s;
+  z-index: 5;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.1s;
+}
+
+.modal {
+  background: var(--main-bg);
+  padding: 2.4rem;
+  border-radius: 0.25rem;
+  position: relative;
+  width: 90%;
+  max-width: 31.25rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 10%);
+
+  color: var(--font-color);
+  transform: translateY(15%);
+  transition: all 0.1s;
+  opacity: 0;
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* <====================| Sobre |====================> */
+
+.about-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.1s;
+  z-index: 6;
+}
+
+.about-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.1s;
+}
+
+.about {
+  background: var(--main-bg);
+  color: var(--font-color);
+  padding: 2.4rem;
+  border-radius: 0.25rem;
+  position: relative;
+  width: 90%;
+  max-width: 31.25rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 10%);
+
+  transform: translateY(15%);
+  transition: all 0.1s;
+  opacity: 0;
+}
+
+.about-overlay.active .about {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.about p {
+  margin: 0.8rem 0 0 0;
+}
+
+.about-header {
+  margin: 0 0 0.8rem 0;
+}
+
+.about .input-group.actions {
+  justify-content: center;
+}
+
+/* <====================| Personalizar |====================> */
+
+.custom-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.1s;
+  z-index: 6;
+}
+
+.custom-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.1s;
+}
+
+.custom {
+  background: var(--main-bg);
+  padding: 2.4rem;
+  border-radius: 0.25rem;
+  position: relative;
+  width: 90%;
+  max-width: 31.25rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 10%);
+
+  transform: translateY(15%);
+  opacity: 0;
+  transition: all 0.1s;
+}
+
+.custom-overlay.active .custom {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.custom p {
+  margin: 0.8rem 0 0 0;
+}
+
+.custom-header {
+  margin: 0 0 0.8rem 0;
+}
+
+/* <====================| Grupo de Botões |====================> */
+.custom .custom-options {
+  margin: 0 0 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.custom .options {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.option {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.options .red {
+  background: hsl(0, 65%, 50%);
+}
+
+.options .red:hover {
+  background: hsl(0, 65%, 65%);
+}
+
+.options .purple {
+  background: hsl(270, 65%, 50%);
+}
+
+.options .purple:hover {
+  background: hsl(270, 65%, 65%);
+}
+
+.options .blue {
+  background: hsl(210, 65%, 50%);
+}
+
+.options .blue:hover {
+  background: hsl(210, 65%, 65%);
+}
+
+.options .green {
+  background: hsl(120, 65%, 50%);
+}
+
+.options .green:hover {
+  background: hsl(120, 65%, 65%);
+}
+
+.options .yellow {
+  background: hsl(60, 65%, 50%);
+}
+
+.options .yellow:hover {
+  background: hsl(60, 65%, 65%);
+}
+
+.options .orange {
+  background: hsl(30, 65%, 50%);
+}
+
+.options .orange:hover {
+  background: hsl(30, 65%, 65%);
+}
+
+.custom .input-group.actions {
+  justify-content: center;
+}
+
+.custom-button {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 1rem;
+  bottom: 1rem;
+  height: 3rem;
+  width: 3rem;
+  background: var(--primary-color);
+  border-radius: 2rem;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 10%);
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.custom-button:hover {
+  background: var(--alt-color);
+  transform: scale(120%);
+}
+
+.custom-button i {
+  font-size: 1rem;
+  color: white;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* <====================| Tema Escuro |====================> */
+.dark-mode {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.dark-mode input {
+  display: none;
+}
+
+.dark-mode label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 3.125rem;
+  background: hsl(0, 0%, 25%);
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dark-mode label:hover {
+  background: hsl(0, 0%, 30%);
+}
+
+/* <====================| Formulário |====================> */
+
+#form {
+  max-width: 31.25rem;
+}
+
+#form h2 {
+  margin: 0 0 0.8rem 0;
+}
+
+input {
+  font-family: var(--main-font);
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+  width: 100%;
+
+  outline: none;
+  background: var(--input-bg);
+  color: var(--font-color);
+}
+
+input#date {
+  text-transform: uppercase;
+}
+
+.input-group {
+  margin: 0.8rem 0 0 0;
+}
+
+.input-group small {
+  opacity: 0.4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+  width: 48%;
+}
+
+/* <====================| Assinatura |====================> */
+.signature {
+  position: fixed;
+  bottom: 0;
+  left: auto;
+  color: var(--font-color);
+  padding: 1rem;
+  opacity: 0.5;
+  z-index: 10;
+  font-size: 0.9rem;
+}
+
+p.assign {
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.assign {
+  font: 400 1.2rem 'Vladimir Script', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* <====================| Responsividade |====================> */
+
+@media (min-width: 800px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  #balance {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  body::-webkit-scrollbar {
+    display: block;
+  }
+
+  .custom-button {
+    height: 3rem;
+    width: 3rem;
+    right: 2rem;
+    bottom: 2rem;
+  }
+
+  .custom-button i {
+    font-size: 1rem;
+  }
+
+  footer {
+    padding: 4rem 0 2rem 0;
+  }
+
+  .signature {
+    font-size: 1rem;
+  }
+
+  .assign {
+    font-size: 1.5rem;
+  }
+}

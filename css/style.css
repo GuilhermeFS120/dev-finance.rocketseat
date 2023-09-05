@@ -568,27 +568,30 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    right: 1rem;
-    bottom: 1rem;
+    right: 2rem;
+    bottom: 2rem;
     height: 3rem;
     width: 3rem;
-    background: var(--primary-color);
+    background: hsl(0, 50%, 50%);
     border-radius: 2rem;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 10%);
     cursor: pointer;
     z-index: 2;
-    transition: transform 0.3s linear;
+    transition: transform 0.3s linear, opacity 0.3s linear;
+    animation: colors 5s linear infinite;
+    transform-origin: bottom right;
+    opacity: 0.5;
 }
 
 .custom-button:hover {
-    background: var(--alt-color);
     transform: scale(120%);
+    opacity: 1;
 }
 
 .custom-button i {
-    font-size: 1rem;
+    font-size: 1em;
     color: white;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* <====================| Tema Escuro |====================> */
@@ -644,16 +647,47 @@ input {
     color: var(--font-color);
 }
 
+input[type='number'] {
+    appearance: none;
+    -webkit-appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
 input#date {
     text-transform: uppercase;
 }
 
 .input-group {
+    display: flex;
+    gap: 1rem;
     margin: 0.8rem 0 0 0;
 }
 
-.input-group small {
-    opacity: 0.4;
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    padding: 0 1rem;
+    text-align: center;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.25em;
+    background: var(--input-bg);
+    color: var(--main-font);
+}
+
+option {
+    background: var(--input-bg);
+    color: var(--font-color);
+    cursor: pointer;
+    text-align: left;
 }
 
 .input-group.actions {
@@ -713,6 +747,15 @@ p.assign {
     }
 }
 
+@keyframes colors {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
 /* <====================| Responsividade |====================> */
 
 @media (min-width: 800px) {
@@ -728,17 +771,6 @@ p.assign {
 
     body::-webkit-scrollbar {
         display: block;
-    }
-
-    .custom-button {
-        height: 3rem;
-        width: 3rem;
-        right: 2rem;
-        bottom: 2rem;
-    }
-
-    .custom-button i {
-        font-size: 1rem;
     }
 
     footer {

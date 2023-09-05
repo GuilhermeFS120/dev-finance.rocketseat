@@ -97,11 +97,12 @@ var Form = {
   description: document.querySelector('input#description'),
   amount: document.querySelector('input#amount'),
   date: document.querySelector('input#date'),
+  amountType: document.getElementById('amountType'),
   getValues: function getValues() {
     return {
-      description: Form.description.value,
-      amount: Form.amount.value,
-      date: Form.date.value
+      description: this.description.value,
+      amount: this.amount.value * Number(this.amountType.value),
+      date: this.date.value
     };
   },
   validateField: function validateField() {
@@ -110,7 +111,7 @@ var Form = {
         amount = _Form$getValues.amount,
         date = _Form$getValues.date;
 
-    if (description.trim() === '' || amount.trim() === '' || date.trim() === '') {
+    if (description.trim() === '' || amount == '' || date.trim() === '') {
       throw new Error('Por favor, preencha todos os campos.');
     }
   },

@@ -96,7 +96,7 @@
                                 type="text"
                                 name="description"
                                 id="description"
-                                placeholder="Descrição"
+                                placeholder="Descrição (Ex.: Salário)"
                             />
                         </div>
                         <div class="input-group">
@@ -107,11 +107,12 @@
                                 name="amount"
                                 id="amount"
                                 placeholder="Valor"
+                                min="0"
                             />
-                            <small class="help">
-                                Use o sinal de "-" (Negativo) para despesas e
-                                "," (Vírgula) para casas decimais.
-                            </small>
+                            <select name="amount-option" id="amountType">
+                                <option value="1">Entrada</option>
+                                <option value="-1">Saída</option>
+                            </select>
                         </div>
                         <div class="input-group">
                             <label for="date" class="sr-only">Data</label>
@@ -135,8 +136,8 @@
             <div class="about">
                 <h2 class="about-header">Sobre o Projeto</h2>
                 <p>
-                    Projeto desenvolvdo por Guilherme Silva na Maratona Discover
-                    da Rocketseat com Mayk Brito.
+                    Projeto da Maratona Discover da Rocketseat, reimaginado por
+                    Guilherme Silva.
                 </p>
                 <p class="assign">Guilherme F. Silva</p>
                 <p>
